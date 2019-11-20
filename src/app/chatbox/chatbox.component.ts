@@ -36,7 +36,11 @@ export class ChatboxComponent implements OnInit {
   conversations = [];
 
   //  Stores all available chatrooms to the user
-  chatroomList = [];
+  chatroomList = [
+    {id: '05kbCceCnYxcfOxewCJK', name: 'Random'},
+    {id: 'UgQEVNxekZrld8UJqtkZ', name: 'General'},
+    {id: 'e0cGp5IpWGb9AuC3iuM2', name: 'ChittyC'}
+    ];
 
   friendList = [
     {
@@ -75,6 +79,8 @@ export class ChatboxComponent implements OnInit {
   ) {}
 
   ngOnInit() {
+    
+    /*
     this.getChatroomList()
       .then(() => {
         if (this.chatroomList.length) {
@@ -82,6 +88,8 @@ export class ChatboxComponent implements OnInit {
         }
       });
     console.log(this.userInfo);
+    */
+    this.openConversation(0);
   }
 
   updateChatHistory() {
