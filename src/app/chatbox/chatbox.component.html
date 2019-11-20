@@ -28,6 +28,7 @@
   <mat-sidenav [ngStyle]="{'width': '150px'}" position="end" mode="side" opened *ngIf="selectedConversation">
     <mat-card>
       <mat-list class="conversations">
+        <mat-list-item *ngIf="chatroomList.length === 0">Loading...</mat-list-item>
         <mat-list-item
           *ngFor="let friend of chatroomList; let i = index"
           (click)="openConversation(i)"
@@ -62,7 +63,7 @@
         <img
           *ngIf="event.type == 'text'"
           matListAvatar
-          matTooltip="{{ event.from === this.userInfo.uid ?  userInfo.displayName : userInfo.displayName}}"
+          matTooltip="{{ event.from === this.userInfo.uid ?  userInfo.displayName : this.selectedConversation.name}}"
           src="https://randomuser.me/api/portraits/thumb/lego/{{ i % 10 }}.jpg"
         />
         <p *ngIf="event.type == 'text'" [dir]="'ltr'">{{ event.text }}</p>
