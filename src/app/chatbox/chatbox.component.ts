@@ -79,7 +79,6 @@ export class ChatboxComponent implements OnInit {
   ) {}
 
   ngOnInit() {
-    
     /*
     this.getChatroomList()
       .then(() => {

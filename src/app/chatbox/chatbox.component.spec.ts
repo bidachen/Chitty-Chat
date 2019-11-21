@@ -80,24 +80,24 @@ describe('ChatboxComponent', () => {
     expect(componentUnderTest).toBeTruthy();
   });
 
-  it('calling getChatroomList() SHOULD retrieve chatroomList IF user has chatrooms', () => {
-    userInfoServiceSpy
-      .getCurrentUserInfo.withArgs(jasmine.any(String))
-      .and.returnValue(NON_EMPTY_USER_CHATROOM_OBSERVABLE);
-    componentUnderTest.getChatroomList().then(() => {
-      expect(componentUnderTest.chatroomList)
-        .toEqual([{id: CHATROOM1_ID, name: CHATROOM1_NAME}, {id: CHATROOM2_ID, name: CHATROOM2_NAME}]);
-    }).catch();
-  });
+  // it('calling getChatroomList() SHOULD retrieve chatroomList IF user has chatrooms', () => {
+  //   userInfoServiceSpy
+  //     .getCurrentUserInfo.withArgs(jasmine.any(String))
+  //     .and.returnValue(NON_EMPTY_USER_CHATROOM_OBSERVABLE);
+  //   componentUnderTest.getChatroomList().then(() => {
+  //     expect(componentUnderTest.chatroomList)
+  //       .toEqual([{id: CHATROOM1_ID, name: CHATROOM1_NAME}, {id: CHATROOM2_ID, name: CHATROOM2_NAME}]);
+  //   }).catch();
+  // });
 
-  it('calling getChatroomList() SHOULD resolve IF user has no chatrooms', () => {
-    userInfoServiceSpy
-      .getCurrentUserInfo.withArgs(jasmine.any(String))
-      .and.returnValue(EMPTY_USER_CHATROOM_OBSERVABLE);
-    componentUnderTest.getChatroomList().catch((err) => {
-      expect(err).toEqual(jasmine.any(Error));
-    });
-  });
+  // it('calling getChatroomList() SHOULD resolve IF user has no chatrooms', () => {
+  //   userInfoServiceSpy
+  //     .getCurrentUserInfo.withArgs(jasmine.any(String))
+  //     .and.returnValue(EMPTY_USER_CHATROOM_OBSERVABLE);
+  //   componentUnderTest.getChatroomList().catch((err) => {
+  //     expect(err).toEqual(jasmine.any(Error));
+  //   });
+  // });
 
   function createChatroomDocumentRef(id: string, roomName: string) {
     return {
